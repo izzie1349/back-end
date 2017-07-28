@@ -46,21 +46,23 @@ class Deck:
         self.suite = suite
         self.ranks = ranks
 
-    def shuffle(self, ranks, suite):
+    def shuffle(self):
         deck = []
-        for ranks_index in range(len(ranks)):
-            for suite_index in range(len(suite)):
-                deck.append(ranks[ranks_index] + suite[suite_index])
+        for ranks_index in range(len(self.ranks)):
+            for suite_index in range(len(self.suite)):
+                deck.append(self.ranks[ranks_index] + self.suite[suite_index])
         shuffled_deck = random.sample(deck, len(deck))
 
         return shuffled_deck
 
-    def cut(self, shuffled_deck):
-        # cut_deck = {'first_half' : ,
-        #             'second_half': }
-        #
+    def cut(self):
+        divided_deck = {}
+        divided_deck['player_one_cards'] = self.shuffle()[:26]
+        divided_deck['player_two_cards'] = self.shuffle()[26:]
 
-        pass
+        return divided_deck
+
+
 
 class Hand:
     '''
@@ -83,4 +85,6 @@ class Player:
 # print("Welcome to War, let's begin...")
 
 x = Deck(SUITE,RANKS)
-print(x.shuffle(RANKS, SUITE))
+# print(x.shuffle())
+# print(x.cut(RANKS, SUITE))
+print(x.cut())
