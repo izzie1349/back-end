@@ -39,7 +39,6 @@ class Deck:
     the players. It will use SUITE and RANKS to create the deck. It should also
     have a method for splitting/cutting the deck in half and Shuffling the deck.
     """
-    pass
 
     def __init__(self, suite, ranks):
         # data attributes
@@ -62,14 +61,23 @@ class Deck:
 
         return divided_deck
 
-
-
-class Hand:
+class Hand(Deck):
     '''
     This is the Hand class. Each player has a Hand, and can add or remove
     cards from that hand. There should be an add and remove card method here.
     '''
-    pass
+
+    def __init__(self, suite, ranks):
+        Deck.__init__(self, suite, ranks)
+        print('Hand created')
+
+    def add():
+        pass
+
+    def remove():
+        pass
+
+
 
 class Player:
     """
@@ -84,7 +92,11 @@ class Player:
 ######################
 # print("Welcome to War, let's begin...")
 
-x = Deck(SUITE,RANKS)
-# print(x.shuffle())
-# print(x.cut(RANKS, SUITE))
-print(x.cut())
+# x = Deck(SUITE,RANKS)
+# # print(x.shuffle())
+# # print(x.cut(RANKS, SUITE))
+# print(x.cut())
+
+x = Hand(SUITE, RANKS)
+dict_two_hands = x.cut()
+print(dict_two_hands['player_one_cards'])
