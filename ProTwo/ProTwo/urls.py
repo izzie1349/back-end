@@ -21,9 +21,9 @@ from django.conf.urls import include
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^help/', include('AppTwo.urls')),
-    # url(r'^login/', include('AppTwo.urls')),
-
     url(r'^login/', views.login, name='login'),
     url(r'^about/', views.about, name='about'),
+    # add view for User
+    url(r'^users/', views.users, name='users'),
     url(r'^admin/', admin.site.urls),
 ]

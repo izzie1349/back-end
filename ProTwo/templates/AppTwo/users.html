@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>users page</title>
+  </head>
+  <body>
+    <h1>welcome to the users page</h1>
+    <h2>here are your users:</h2>
+    <div class="listcontainer">
+      {% if users_key %}
+      <ol>
+        {% for entry in users_key %}
+        <li>User Info:</li>
+        <ul>
+          <li>First Name: {{entry.first_name}}</li>
+          <li>Last Name: {{entry.last_name}}</li>
+          <li>Email: {{entry.email}}</li>
+        </ul>
+        {% endfor %}
+      </ol>
+      {% else %}
+        <p>NO ACCES RECORDS FOUND</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
