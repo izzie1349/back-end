@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from AppTwo.models import User
 
 # Create your views here.
 
@@ -22,3 +23,10 @@ def about(request):
         'about_us_dict_key' : 'this is cool stuff about us!'
     }
     return render(request, 'AppTwo/about.html', context=about_dict)
+
+def users(request):
+    users_list_ordered_by_email = User.objects.order_by('email')
+    users_dict = {
+        'users_key' : users_list_ordered_by_email,
+    }
+    return render(request, 'AppTwo/users.html', context=users_dict)
