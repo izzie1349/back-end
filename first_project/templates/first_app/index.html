@@ -3,15 +3,32 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>aldo page</title>
-    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}"/>
+    <title>django mtv</title>
+    <link rel="stylesheet" href="{% static 'css/mystyle.css'}"/>
   </head>
   <body>
-    <h1>hello, this is a pic of me and aldo</h1>
-    <!-- template tag -->
-    <!-- {{ insert_me }} -->
+    <h1>django</h1>
+    <h2>here are access records:</h2>
 
-    <img src="{% static 'images/me_and_aldo.JPG' %}" alt="couldnt load img">
+    <div class="djangotwo">
+      {% if access_records %}
+        <table>
+          <thead>
+            <th>site name</th>
+            <th>date accessed</th>
+          </thead>
+            {% for acc in access_records %}
+            <tr>
+              <td>{{ acc.name }}</td>
+              <td>{{ acc.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
 
+      {% else %}
+        <p>NO ACCES RECORDS FOUND</p>
+
+      {% endif %}
+    </div>
   </body>
 </html>
