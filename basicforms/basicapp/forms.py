@@ -1,9 +1,13 @@
 from django import forms
 from django.core import validators
 
+# suppose you want to check that name begins with z
+def check_for_z(value):
+    if value[0].lower() != 'z':
+        raise forms.ValidationError('NAME NEEDS TO START WITH Z')
 
 class FormName(forms.Form):
-    name = forms.CharField()
+    name = forms.CharField(validators=[check_for_z])
     email = forms.EmailField()
     text = forms.CharField(widget=forms.Textarea)
     botcatcher = forms.CharField(required=False,
