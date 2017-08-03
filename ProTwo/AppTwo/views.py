@@ -36,8 +36,11 @@ def user_form(request):
     form = forms.UserForm()
 
     # get user data
-    if request.method == 'POST':
+    if request.method == 'POST': # if someone hits submit and you get data back
         form = forms.UserForm(request.POST)
-        if form.is_valid():
-            form.save()
+        if form.is_valid(): # check
+            form.save(commit=True)
+            return index(request)
+        else:
+            print('error form invalid')
     return render(request, 'AppTwo/user_form.html', { 'form':form })
