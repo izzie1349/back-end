@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from AppTwo.models import User
+from AppTwo import forms
 
 # Create your views here.
 
@@ -30,3 +31,13 @@ def users(request):
         'users_key' : users_list_ordered_by_email,
     }
     return render(request, 'AppTwo/users.html', context=users_dict)
+
+def user_form(request):
+    form = forms.UserForm()
+
+    # get user data
+    if request.method == 'POST':
+        form = forms.UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+    return render(request, 'AppTwo/user_form.html', { 'form':form })

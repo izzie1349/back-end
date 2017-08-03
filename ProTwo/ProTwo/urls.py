@@ -25,5 +25,6 @@ urlpatterns = [
     url(r'^about/', views.about, name='about'),
     # add view for User
     url(r'^users/', views.users, name='users'),
+    url(r'^user_form/', views.user_form, name='user_form'),
     url(r'^admin/', admin.site.urls),
 ]
