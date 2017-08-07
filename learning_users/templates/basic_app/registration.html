@@ -1,8 +1,8 @@
-{% extends 'basic_app/base.html' %}
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
 {% load staticfiles %}
 
 {% block body_block %}
-{% endblock %}
 
 <div class="jumbotron">
   {% if registered %}
@@ -22,3 +22,4 @@
   {% endif %}
 
 </div>
+{% endblock %}
