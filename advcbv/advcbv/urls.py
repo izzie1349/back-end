@@ -22,5 +22,5 @@ urlpatterns = [
     # url(r'^$', views.index)
 
     # calling class based view
-    url(r'^$', views.CBView.as_view())
+    url(r'^$', views.IndexView.as_view())
 ]
